@@ -13,7 +13,7 @@ import java.util.List;
 public class StudentController {
 
     @PostMapping
-    List<Student> submitStudents(@RequestBody Student student){
+    List<Student> submsaitStudents(@RequestBody Student student){
         return null;
     }
 }
