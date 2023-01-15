@@ -22,10 +22,36 @@
                            <td>{{customer.age}}</td>
                            <td>{{customer.address}}</td>
                            <td>{{customer.rooms[0].roomNumber}}</td>
+                           <td><Button>Remove Customer</Button></td>
                        </tr>
                    </tbody>
                </table>
            </div>
+
+    <button
+      type="button"
+      class="btn"
+      @click="showModal"
+    >
+      Add New Customer
+    </button>
+
+ <dg-modal v-show="isModalVisible"
+                 @close="closeModal">
+
+
+      <template v-slot:header>
+          This is a new modal header.
+        </template>
+
+        <template v-slot:body>
+          This is a new modal body.
+        </template>
+
+        <template v-slot:footer>
+          This is a new modal footer.
+        </template>
+  </dg-modal>
 </div>
 
 
@@ -33,11 +59,18 @@
 </template>
 
 <script>
+  import ModalWindow from './ModalWindow.vue';
+
 export default {
   name: 'dg-dashboard',
+  components:{
+      'dg-modal': ModalWindow
+     },
   data() {
     return {
-      customers: [{"id":1,"name":"XlsjMItWWHEUnqQpoqYK","age":"33.2183974441985041750698554077186763388","salary":"881.756500351126174274614418318494758655","address":"Berlin"}]
+      customers: [{"id":1,"name":"XlsjMItWWHEUnqQpoqYK","age":"33.2183974441985041750698554077186763388","salary":"881.756500351126174274614418318494758655","address":"Berlin"}],
+              isModalVisible: false
+
     }
   },
   mounted() {
@@ -50,7 +83,15 @@ export default {
                           console.log ("hello 2  ", this.customers[0].id)
 
       });
-  }
+  },
+  methods: {
+        showModal() {
+          this.isModalVisible = true;
+        },
+        closeModal() {
+          this.isModalVisible = false;
+        }
+      }
 }
 </script>
 
