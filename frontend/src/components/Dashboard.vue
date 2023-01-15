@@ -1,27 +1,31 @@
 <template>
 <div>
 <h1>Dashboard</h1>
+<div class = "center">
        <table class="table table-striped table-bordered">
                    <thead>
                        <tr>
                        <th>CustomerId</th>
-                           <th>Name</th>
+                           <th>First Name</th>
+                           <th>Last Name</th>
                            <th>Age</th>
-                           <th>Salary</th>
                            <th>Address</th>
+                           <th>Room Number</th>
 
                        </tr>
                    </thead>
                    <tbody>
                        <tr v-for="customer in customers" :key="customer.id">
-                       <td>{{customer.id}} </td>
-                           <td>{{customer.name}} </td>
+                       <td>{{customer.customer_id}} </td>
+                           <td>{{customer.firstName}} </td>
+                           <td>{{customer.lastName}}</td>
                            <td>{{customer.age}}</td>
-                           <td>{{customer.salary}}</td>
                            <td>{{customer.address}}</td>
+                           <td>{{customer.rooms[0].roomNumber}}</td>
                        </tr>
                    </tbody>
                </table>
+           </div>
 </div>
 
 
@@ -51,7 +55,38 @@ export default {
 </script>
 
 <style>
-table, th, td {
-  border: 1px solid black;
+table {
+  font-family: 'Open Sans', sans-serif;
+  width: 750px;
+  border-collapse: collapse;
+  border: 3px solid #44475C;
+  margin: 10px 10px 0 10px;
 }
+
+table th {
+  text-transform: uppercase;
+  text-align: left;
+  background: #44475C;
+  color: #FFF;
+  padding: 8px;
+  min-width: 30px;
+}
+
+table td {
+  text-align: left;
+  padding: 8px;
+  border-right: 2px solid #7D82A8;
+}
+table td:last-child {
+  border-right: none;
+}
+table tbody tr:nth-child(2n) td {
+  background: #D4D8F9;
+}
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
 </style>
