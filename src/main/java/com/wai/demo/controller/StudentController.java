@@ -1,6 +1,6 @@
 package com.wai.demo.controller;
 
-import com.wai.demo.entity.Student;
+import com.wai.demo.entity.Room;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,8 @@ import java.util.List;
 public class StudentController {
 
     @PostMapping
-    List<Student> submsaitStudents(@RequestBody Student student){
+    List<Room> submsaitStudents(@RequestBody Room student){
+        //retrieve records from teh database
         return null;
     }
 }
