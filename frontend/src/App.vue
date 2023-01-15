@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <Dashboard msg="Welcome to Your Vue.js App"/>
+    <nav>
+      <router-link to="/">Dashboard</router-link> |
+      <router-link to="/about">SQS</router-link>
+    </nav>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import Dashboard from './components/Dashboard.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Dashboard
-  }
-}
-</script>
 
 <style>
 #app {
@@ -22,6 +15,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
