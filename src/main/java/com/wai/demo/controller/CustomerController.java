@@ -42,4 +42,10 @@ public class CustomerController {
         System.out.println("getCustomerByAddress " + address);
         return customerService.getCustomerByAddress(address);
     }
+
+    @PutMapping(value = "/{customerId}")
+    void removeCustomerById(@PathVariable(value = "customerId") long customerId){
+        customerService.removeCustomerById(customerId);
+    }
+
 }

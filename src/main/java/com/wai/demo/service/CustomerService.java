@@ -38,4 +38,8 @@ public class CustomerService {
         Customer customer1 = customerRepo.save(customer);
 
     }
+
+    public void removeCustomerById(long customerId){
+        customerRepo.deleteById(customerId);
+    }
 }

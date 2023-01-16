@@ -15,14 +15,15 @@
                        </tr>
                    </thead>
                    <tbody>
-                       <tr v-for="customer in customers" :key="customer.id">
+                       <tr v-for="customer in customers" :key="customer.customer_id">
+                       {{key}}
                        <td>{{customer.customer_id}} </td>
                            <td>{{customer.firstName}} </td>
                            <td>{{customer.lastName}}</td>
                            <td>{{customer.age}}</td>
                            <td>{{customer.address}}</td>
                            <td>{{customer.rooms[0].roomNumber}}</td>
-                           <td><Button>Remove Customer</Button></td>
+                           <td><Button @click="removeCustomer(customer.customer_id)">Remove Customer</Button></td>
                        </tr>
                    </tbody>
                </table>
@@ -90,6 +91,15 @@ export default {
         },
         closeModal() {
           this.isModalVisible = false;
+        },
+
+       async removeCustomer(customerId){
+         const requestOptions = {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" }
+          };
+            console.log("removing customer ", customerId);
+            await fetch(`/customers/${customerId}`, requestOptions)
         }
       }
 }
