@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { HTTP } from '../axios/http-common'
   export default {
     name: 'dg-modal',
     data() {
@@ -73,9 +74,16 @@
       close() {
         this.$emit('close');
       },
-      submit(){
+      async submit(){
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.userData)
+        };
         const customerInfo = this.userData
         console.log('hello customerInfo ', customerInfo)
+        console.log('  dfd', HTTP)
+        await fetch(`/customers`,   requestOptions)
         this.close();
       }
     },

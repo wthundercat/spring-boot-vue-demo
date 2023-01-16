@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Room {
 
     @Id
+    @Column(name = "room_id")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "room_seq"
@@ -18,7 +19,7 @@ public class Room {
             name = "room_seq",
             allocationSize = 1
     )
-    String room_id;
+    long roomId;
 
     @Column(name = "room_number")
     String roomNumber;
@@ -33,12 +34,12 @@ public class Room {
     private Customer customer;
 
 
-    public String getRoom_id() {
-        return room_id;
+    public long getRoom_id() {
+        return roomId;
     }
 
-    public void setRoom_id(String room_id) {
-        this.room_id = room_id;
+    public void setRoom_id(long roomId) {
+        this.roomId = roomId;
     }
 
     public String getRoomNumber() {

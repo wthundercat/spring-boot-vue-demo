@@ -30,7 +30,7 @@ public class Customer {
             name = "customer_seq",
             allocationSize = 1
     )
-    Long customer_id;
+    long customer_id;
 
     @Column(name = "first_name")
     String firstName;
