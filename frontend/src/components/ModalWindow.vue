@@ -7,43 +7,36 @@
         aria-describedby="modalDescription"
       >
 <div class="form-group">
-    <label for="email">First Name</label>
-    <input type="text"
-           id="email"
-           class="form-control"
-           v-model="userData.firstName">
+    <div>
+        <label for="email">First Name</label>
+        <input type="text" id="email" class="form-control" v-model="userData.firstName">
+    </div>
+    <div>
+        <label for="email">Last Name</label>
+        <input type="text" id="email" class="form-control" v-model="userData.lastName">
+    </div>
+    <div>
+        <label for="age">Age</label>
+        <input type="text" id="age" class="form-control" v-model="userData.age">
+    </div>
+    <div>
+        <label for="age">Address</label>
+        <input type="text" id="age" class="form-control" v-model="userData.address">
+    </div>
+    <div>
+        <label for="age">Room Number</label>
+        <input type="text" id="age" class="form-control" v-model="userData.roomNumber">
+    </div>
 
-            <label for="email">Last Name</label>
-               <input type="text"
-                      id="email"
-                      class="form-control"
-                      v-model="userData.lastName">
+
 </div>
-<div class="form-group">
-    <label for="email">Age</label>
-    <input type="text"
-           id="email"
-           class="form-control"
-           v-model="userData.firstName">
 
-            <label for="email">Address</label>
-               <input type="text"
-                      id="email"
-                      class="form-control"
-                      v-model="userData.lastName">
-
-                       <label for="email">Room Number</label>
-                                     <input type="text"
-                                            id="email"
-                                            class="form-control"
-                                            v-model="userData.lastName">
-</div>
 <div>
 <button
             type="button"
             class="btn-green"
-            @click="close"
-            aria-label="Close modal"
+            @click="submit"
+            aria-label="Submit"
           >
             Submit
           </button>
@@ -69,7 +62,10 @@
                 return {
                     userData: {
                         firstName: '',
-                        lastName: ''
+                        lastName: '',
+                        age: '',
+                        address: '',
+                        roomNumber: '',
                     }
                 }
             },
@@ -77,6 +73,11 @@
       close() {
         this.$emit('close');
       },
+      submit(){
+        const customerInfo = this.userData
+        console.log('hello customerInfo ', customerInfo)
+        this.close();
+      }
     },
   };
 </script>
