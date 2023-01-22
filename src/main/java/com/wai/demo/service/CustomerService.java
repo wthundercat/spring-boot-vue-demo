@@ -34,6 +34,7 @@ public class CustomerService {
         Room room = new Room();
         room.setRoomNumber(payload.getRoomNumber());
         customer.addRoom(room);
+        
 
         Customer customer1 = customerRepo.save(customer);
 
